@@ -97,8 +97,54 @@ p.strokeRect(xCoordinate, yCoordinate, widths, heights);
 function drawColoredRectangle() {
 
 var p = document.getElementById('canvas3').getContext('2d');
-p.fillRect(10, 10, 100, 50);
+let input;
 
+do{
+  prompt('Enter a color');
+} while(input !=== "black" || "blue" || "green" || "orange" || "purple" || "red" || "yellow");
+
+
+
+if (input === "black"){
+  p.fillRect(10, 10, 100, 50);
+  p.fillStyle = "black"
+}
+
+
+do {
+  p.fillRect(10, 10, 100, 50);
+  p.fillStyle = "black"
+} while(input === "black");
+
+do {
+  p.fillRect(10, 10, 100, 50);
+  p.fillStyle = "blue"
+} while(input === "blue");
+
+do {
+  p.fillRect(10, 10, 100, 50);
+  p.fillStyle = "green"
+} while(input === "green");
+
+do {
+  p.fillRect(10, 10, 100, 50);
+  p.fillStyle = "orange"
+} while(input === "orange");
+
+do {
+  p.fillRect(10, 10, 100, 50);
+  p.fillStyle = "purple"
+} while(input === "purple");
+
+do {
+  p.fillRect(10, 10, 100, 50);
+  p.fillStyle = "red"
+} while(input === "red");
+
+do {
+  p.fillRect(10, 10, 100, 50);
+  p.fillStyle = "yellow"
+} while(input === "yellow");
 
 }
 
