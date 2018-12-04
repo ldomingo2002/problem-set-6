@@ -11,7 +11,9 @@
  */
 
 function sayHello() {
-
+var p = document.getElementById('canvas1').getContext('2d');
+p.font = '48px sans-serif';
+p.strokeText('Hello, World!', 10, 50);
 }
 
 /*
@@ -39,7 +41,33 @@ function sayHello() {
 
 function drawRectangle() {
 
+var p = document.getElementById('canvas2').getContext('2d');
+
+let heights;
+let widths;
+let xCoordinate;
+let yCoordinate;
+
+do {
+    heights = prompt('Pick a length for your rectangle');
+  } while(heights < 1);
+
+do {
+  widths = prompt('Pick a width for your rectangle');
+} while( widths < 1);
+
+do {
+  xCoordinate = prompt('Pick an x-coordinate');
+} while( xCoordinate < 5);
+
+do {
+  yCoordinate = prompt('Pick a y-coordinate');
+} while( yCoordinate < 5);
+
+p.strokeRect(xCoordinate, yCoordinate, widths, heights);
+
 }
+
 
 /*
  * Color. 3 points.
@@ -67,6 +95,10 @@ function drawRectangle() {
  */
 
 function drawColoredRectangle() {
+
+var p = document.getElementById('canvas3').getContext('2d');
+p.fillRect(10, 10, 100, 50);
+
 
 }
 
