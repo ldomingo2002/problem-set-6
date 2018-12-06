@@ -99,45 +99,52 @@ function drawColoredRectangle() {
 var p = document.getElementById('canvas3').getContext('2d');
 let input = prompt('Enter a color');
 
-if (input !== "black" || input !== " blue" || input !== "green" || input !== "orange" || input !== "purple" || input !== "red"){
-  prompt('Please enter a valid color');
+if (input !== "black" || "blue" || "green" || "orange" || "purple" || "red" || "yellow"){
+  alert(`${input} is an unsupported color`);
 }
 
-  do {
-    p.fillRect(10, 10, 100, 50);
+  while (input === "black"){
+
     p.fillStyle = "black";
-    p.clearRect(10, 10, 100, 50);
-  } while(input === "black");
-
-  do {
     p.fillRect(10, 10, 100, 50);
-    p.fillStyle = "blue"
-  } while(input === "blue");
+    break;
+  }
 
-  do {
-    p.fillRect(10, 10, 100, 50);
-    p.fillStyle = "green"
-  } while(input === "green");
+while (input === "blue"){
+  p.fillStyle = "blue";
+  p.fillRect(10, 10, 100, 50);
+  break;
+}
 
-  do {
-    p.fillRect(10, 10, 100, 50);
-    p.fillStyle = "orange"
-  } while(input === "orange");
+while (input === "green"){
+  p.fillStyle = "green";
+  p.fillRect(10, 10, 100, 50);
+  break;
+}
 
-  do {
-    p.fillRect(10, 10, 100, 50);
-    p.fillStyle = "purple"
-  } while(input === "purple");
+while (input === "orange"){
+  p.fillStyle = "orange";
+  p.fillRect(10, 10, 100, 50);
+  break;
+}
 
-  do {
-    p.fillRect(10, 10, 100, 50);
-    p.fillStyle = "red"
-  } while(input === "red");
+while (input === "purple"){
+  p.fillStyle = "purple";
+  p.fillRect(10, 10, 100, 50);
+  break;
+}
 
-  do {
-    p.fillRect(10, 10, 100, 50);
-    p.fillStyle = "yellow"
-  } while(input === "yellow");
+while (input === "red"){
+  p.fillStyle = "red";
+  p.fillRect(10, 10, 100, 50);
+  break;
+}
+
+while (input === "yellow"){
+  p.fillStyle = "yellow";
+  p.fillRect(10, 10, 100, 50);
+  break;
+}
 }
 
 
