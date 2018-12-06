@@ -97,56 +97,49 @@ p.strokeRect(xCoordinate, yCoordinate, widths, heights);
 function drawColoredRectangle() {
 
 var p = document.getElementById('canvas3').getContext('2d');
-let input;
+let input = prompt('Enter a color');
 
-do{
-  prompt('Enter a color');
-} while(input !=== "black" || "blue" || "green" || "orange" || "purple" || "red" || "yellow");
-
-
-
-if (input === "black"){
-  p.fillRect(10, 10, 100, 50);
-  p.fillStyle = "black"
+if (input !== "black" || input !== " blue" || input !== "green" || input !== "orange" || input !== "purple" || input !== "red"){
+  prompt('Please enter a valid color');
 }
 
+  do {
+    p.fillRect(10, 10, 100, 50);
+    p.fillStyle = "black";
+    p.clearRect(10, 10, 100, 50);
+  } while(input === "black");
 
-do {
-  p.fillRect(10, 10, 100, 50);
-  p.fillStyle = "black"
-} while(input === "black");
+  do {
+    p.fillRect(10, 10, 100, 50);
+    p.fillStyle = "blue"
+  } while(input === "blue");
 
-do {
-  p.fillRect(10, 10, 100, 50);
-  p.fillStyle = "blue"
-} while(input === "blue");
+  do {
+    p.fillRect(10, 10, 100, 50);
+    p.fillStyle = "green"
+  } while(input === "green");
 
-do {
-  p.fillRect(10, 10, 100, 50);
-  p.fillStyle = "green"
-} while(input === "green");
+  do {
+    p.fillRect(10, 10, 100, 50);
+    p.fillStyle = "orange"
+  } while(input === "orange");
 
-do {
-  p.fillRect(10, 10, 100, 50);
-  p.fillStyle = "orange"
-} while(input === "orange");
+  do {
+    p.fillRect(10, 10, 100, 50);
+    p.fillStyle = "purple"
+  } while(input === "purple");
 
-do {
-  p.fillRect(10, 10, 100, 50);
-  p.fillStyle = "purple"
-} while(input === "purple");
+  do {
+    p.fillRect(10, 10, 100, 50);
+    p.fillStyle = "red"
+  } while(input === "red");
 
-do {
-  p.fillRect(10, 10, 100, 50);
-  p.fillStyle = "red"
-} while(input === "red");
-
-do {
-  p.fillRect(10, 10, 100, 50);
-  p.fillStyle = "yellow"
-} while(input === "yellow");
-
+  do {
+    p.fillRect(10, 10, 100, 50);
+    p.fillStyle = "yellow"
+  } while(input === "yellow");
 }
+
 
 /*
  * Triangle. 5 points.
