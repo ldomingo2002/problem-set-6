@@ -99,51 +99,36 @@ function drawColoredRectangle() {
 var p = document.getElementById('canvas3').getContext('2d');
 let input = prompt('Enter a color');
 
-if (input !== "black" || "blue" || "green" || "orange" || "purple" || "red" || "yellow"){
-  alert(`${input} is an unsupported color`);
-}
-
-  while (input === "black"){
-
-    p.fillStyle = "black";
-    p.fillRect(10, 10, 100, 50);
-    break;
-  }
-
-while (input === "blue"){
+switch(input){
+case "black":
+  p.fillStyle = "black";
+  p.fillRect(10, 10, 100, 50);
+  break;
+case "blue":
   p.fillStyle = "blue";
   p.fillRect(10, 10, 100, 50);
   break;
-}
-
-while (input === "green"){
+  case "green":
   p.fillStyle = "green";
   p.fillRect(10, 10, 100, 50);
   break;
-}
-
-while (input === "orange"){
+  case "orange":
   p.fillStyle = "orange";
   p.fillRect(10, 10, 100, 50);
   break;
-}
-
-while (input === "purple"){
+  case "purple":
   p.fillStyle = "purple";
   p.fillRect(10, 10, 100, 50);
   break;
-}
-
-while (input === "red"){
+  case "red":
   p.fillStyle = "red";
   p.fillRect(10, 10, 100, 50);
   break;
-}
-
-while (input === "yellow"){
+  case "yellow":
   p.fillStyle = "yellow";
   p.fillRect(10, 10, 100, 50);
   break;
+  default: alert(`${input} is an unsupported color`);
 }
 }
 
@@ -178,6 +163,22 @@ while (input === "yellow"){
  */
 
 function drawTriangle() {
+var p = document.getElementById('canvas4').getContext('2d');
+let side1 = prompt('Side 1:');
+let side2 = prompt('Side 2:');
+let side3 = prompt('Side 3:');
+
+
+p.beginPath();
+p.moveTo(10, 10);
+p.lineTo(10, side1);
+p.lineTo(side2 ,side1)
+p.closePath();
+p.stroke();
+
+
+
+
 
 }
 
