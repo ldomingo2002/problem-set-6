@@ -164,22 +164,24 @@ case "blue":
 
 function drawTriangle() {
 var p = document.getElementById('canvas4').getContext('2d');
-let side1 = prompt('Side 1:');
-let side2 = prompt('Side 2:');
+let side1 = Number(prompt('Side 1:')) + 10;
+let side2 = Number(prompt('Side 2:')) + 10;
 let side3 = prompt('Side 3:');
 
+let equation = Math.sqrt((side1 * side1) + (side2 * side2));
 
-p.beginPath();
-p.moveTo(10, 10);
-p.lineTo(10, side1);
-p.lineTo(side2 ,side1)
-p.closePath();
-p.stroke();
+if (equation !== side3){
 
+  alert('Invalid side measurements');
 
-
-
-
+} else {
+  p.beginPath();
+  p.moveTo(10, 10);
+  p.lineTo(10, side1);
+  p.lineTo(side2, side1);
+  p.closePath();
+  p.stroke();
+}
 }
 
 /*
