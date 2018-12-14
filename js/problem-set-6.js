@@ -170,18 +170,19 @@ let side3 = prompt('Side 3:');
 
 let equation = Math.sqrt((side1 * side1) + (side2 * side2));
 
-if (equation !== side3){
+if (equation == side3){
 
-  alert('Invalid side measurements');
-
-} else {
   p.beginPath();
   p.moveTo(10, 10);
   p.lineTo(10, side1);
   p.lineTo(side2, side1);
   p.closePath();
   p.stroke();
+  
+} else {
+  alert('Those are not valid triangle sides');
 }
+
 }
 
 /*
