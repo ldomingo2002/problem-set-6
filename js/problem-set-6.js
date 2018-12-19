@@ -164,6 +164,8 @@ case "blue":
 
 function drawTriangle() {
 var p = document.getElementById('canvas4').getContext('2d');
+p.clearRect(0, 0, 1024, 512);
+
 let side1 = Number(prompt('Side 1:')) + 10;
 let side2 = Number(prompt('Side 2:')) + 10;
 let side3 = prompt('Side 3:');
@@ -178,9 +180,7 @@ if (equation == side3){
   p.lineTo(side2, side1);
   p.closePath();
   p.stroke();
-  
-} else {
-  alert('Those are not valid triangle sides');
+
 }
 
 }
@@ -205,6 +205,26 @@ if (equation == side3){
  */
 
 function drawSmileyFace() {
+var p = document.getElementById('canvas5').getContext('2d');
+p.clearRect(0, 0, 1024, 512);
+
+let radiuus = prompt('Radius:');
+let smile = radiuus * (7/10);
+let eyes = radiuus * (1/10);
+
+if (radiuus < 80){
+  p.beginPath();
+  p.arc(80, 80, radiuus, 0, Math.PI * 2, true);
+  p.moveTo(115, 80);
+  p.arc(80, 80, smile, 0, Math.PI, false);
+  p.moveTo(70, 70);
+  p.arc(65, 70, eyes, 0, Math.PI * 2, true);
+  p.moveTo(100, 70);
+  p.arc(95, 70, eyes, 0, Math.PI * 2, true);
+  p.stroke();
+  } else {
+    alert(`Smiley won't fit on canvas.`);
+}
 
 }
 
@@ -227,7 +247,17 @@ function drawSmileyFace() {
  */
 
 function drawStar() {
+var p = document.getElementById('canvas6').getContext('2d');
+p.clearRect(0, 0, 1024, 512);
 
+let outerRadius = prompt('Outer Radius:');
+let innerRadius = prompt('Inner Radius:');
+
+p.beginPath();
+p.arc(120, 100, innerRadius, 0, Math.PI * 2, true);
+p.moveTo(80, 80);
+p.arc(120, 100, outerRadius, 0, Math.PI * 2, true);
+p.stroke();
 }
 
 /*
@@ -246,6 +276,15 @@ function drawStar() {
  */
 
 function drawStopSign() {
+var p = document.getElementById('canvas7').getContext('2d');
+
+p.beginPath();
+p.moveTo(50,50);
+p.lineTo(130, 50);
+p.lineTo(180, 110);
+p.lineTo(180, 190);
+p.lineTo()
+p.stroke();
 
 }
 
@@ -268,7 +307,24 @@ function drawStopSign() {
  */
 
 function drawPyramid() {
+var p = document.getElementById('canvas8').getContext('2d');
+p.clearRect(0, 0, 1024, 512);
 
+let sideLength = Number(prompt('Height:'));
+let limit = 100;
+
+
+p.beginPath();
+p.moveTo(10, 502);
+p.strokeRect(10, 400, sideLength, sideLength);
+p.strokeRect((sideLength + 10), 400, sideLength, sideLength);
+p.strokeRect(((sideLength * 2) + 10), 400, sideLength, sideLength);
+p.strokeRect(((sideLength * 3) + 10), 400, sideLength, sideLength);
+p.strokeRect(((sideLength * 4) + 10), 400, sideLength, sideLength);
+p.moveTo(((sideLength * 0.5) + 10), 500);
+p.strokeRect(((sideLength * 0.5) + 10), sideLength, sideLength, sideLength);
+p.closePath();
+p.stroke();
 }
 
 /*
