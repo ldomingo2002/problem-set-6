@@ -313,18 +313,40 @@ p.clearRect(0, 0, 1024, 512);
 let sideLength = Number(prompt('Height:'));
 let limit = 100;
 
+if (sideLength > 100){
+  alert('That side length will not fit on the canvas');
+} else {
 
-p.beginPath();
-p.moveTo(10, 502);
-p.strokeRect(10, 400, sideLength, sideLength);
-p.strokeRect((sideLength + 10), 400, sideLength, sideLength);
-p.strokeRect(((sideLength * 2) + 10), 400, sideLength, sideLength);
-p.strokeRect(((sideLength * 3) + 10), 400, sideLength, sideLength);
-p.strokeRect(((sideLength * 4) + 10), 400, sideLength, sideLength);
-p.moveTo(((sideLength * 0.5) + 10), 500);
-p.strokeRect(((sideLength * 0.5) + 10), sideLength, sideLength, sideLength);
-p.closePath();
-p.stroke();
+  p.beginPath();
+  p.moveTo(10, 502);
+  // first row
+  p.strokeRect(10, (512 - sideLength), sideLength, sideLength);
+  p.strokeRect((sideLength + 10), (512 - sideLength), sideLength, sideLength);
+  p.strokeRect(((sideLength * 2) + 10), (512 - sideLength), sideLength, sideLength);
+  p.strokeRect(((sideLength * 3) + 10), (512 - sideLength), sideLength, sideLength);
+  p.strokeRect(((sideLength * 4) + 10), (512 - sideLength), sideLength, sideLength);
+
+  // second row
+  p.strokeRect(((sideLength * 0.5) + 10), (512 - (sideLength * 2)), sideLength, sideLength);
+  p.strokeRect(((sideLength * 0.5) + 10 + sideLength), (512 - (sideLength * 2)), sideLength, sideLength);
+  p.strokeRect(((sideLength * 0.5) + 10 + (sideLength * 2)), (512 - (sideLength * 2)), sideLength, sideLength);
+  p.strokeRect(((sideLength * 0.5) + 10 + (sideLength * 3)), (512 - (sideLength * 2)), sideLength, sideLength);
+
+  // third row
+  p.strokeRect(((sideLength) + 10), (512 - (sideLength * 3)), sideLength, sideLength);
+  p.strokeRect(((sideLength * 2) + 10), (512 - (sideLength * 3)), sideLength, sideLength);
+  p.strokeRect(((sideLength * 3) + 10), (512 - (sideLength * 3)), sideLength, sideLength);
+
+  // fourth row
+  p.strokeRect(((sideLength * 0.5) + 10 + sideLength), (512 - (sideLength * 4)), sideLength, sideLength);
+  p.strokeRect(((sideLength * 0.5) + 10 + (sideLength * 2)), (512 - (sideLength * 4)), sideLength, sideLength);
+
+  // fifth row
+  p.strokeRect((((sideLength) + 10 + sideLength)), (512 - (sideLength * 5)), sideLength, sideLength);
+  p.closePath();
+  p.stroke();
+
+}
 }
 
 /*
@@ -357,5 +379,52 @@ p.stroke();
  */
 
 function drawHouse() {
+var p = document.getElementById('canvas9').getContext('2d');
+p.clearRect(0, 0, 1024, 512);
+
+let houseColor = prompt('House color:');
+let doorColor = prompt('Door color:');
+
+p.beginPath();
+//house
+p.fillStyle = `${houseColor}`;
+p.fillRect(150, 502, 724, 256);
+p.fillRect(150, 246, 724, 256);
+p.fill();
+p.stroke();
+
+//windows
+p.beginPath();
+p.fillStyle = 'lightBlue';
+p.fillRect(270, 590, 85, 85);
+p.fillRect(270, 350, 85, 85);
+
+p.fillRect(670, 590, 85, 85);
+p.fillRect(670, 350, 85, 85);
+p.fill();
+p.stroke();
+
+//door
+p.beginPath();
+p.fillStyle = `${doorColor}`;
+p.fillRect(467, 578, 90, 180);
+p.fill();
+p.stroke();
+
+//roof
+p.beginPath();
+p.moveTo(150, 247);
+p.lineTo(510, 40);
+p.lineTo(874, 247);
+p.closePath();
+p.fill();
+p.fillStyle = 'grey';
+p.stroke();
+
+//doorknob
+p.beginPath();
+  p.arc(540, 680, 7, 0, Math.PI * 2, true);
+
+p.stroke();
 
 }
