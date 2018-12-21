@@ -42,27 +42,17 @@ p.strokeText('Hello, World!', 10, 50);
 function drawRectangle() {
 
 var p = document.getElementById('canvas2').getContext('2d');
+p.clearRect(0, 0, 1024, 512);
 
-let heights;
-let widths;
-let xCoordinate;
-let yCoordinate;
+let heights = prompt('Pick a length for your rectangle');
+let widths = prompt('Pick a width for your rectangle');
+let xCoordinate = prompt('Pick an x-coordinate');
+let yCoordinate = prompt('Pick a y-coordinate');
 
-do {
-    heights = prompt('Pick a length for your rectangle');
-  } while(heights < 1);
-
-do {
-  widths = prompt('Pick a width for your rectangle');
-} while( widths < 1);
-
-do {
-  xCoordinate = prompt('Pick an x-coordinate');
-} while( xCoordinate < 5);
-
-do {
-  yCoordinate = prompt('Pick a y-coordinate');
-} while( yCoordinate < 5);
+while(heights < 1 || widths < 1 || xCoordinate < 5 || yCoordinate < 5){
+    alert('This rectangle will not fit on the canvas');
+    break;
+}
 
 p.strokeRect(xCoordinate, yCoordinate, widths, heights);
 
@@ -98,6 +88,7 @@ function drawColoredRectangle() {
 
 var p = document.getElementById('canvas3').getContext('2d');
 let input = prompt('Enter a color');
+p.clearRect(0, 0, 1024, 512);
 
 switch(input){
 case "black":
@@ -279,13 +270,20 @@ function drawStopSign() {
 var p = document.getElementById('canvas7').getContext('2d');
 
 p.beginPath();
-p.moveTo(50,50);
-p.lineTo(130, 50);
-p.lineTo(180, 110);
-p.lineTo(180, 190);
-p.lineTo()
+p.moveTo(65, 10);
+p.lineTo(145, 10);
+p.lineTo(195, 70);
+p.lineTo(195, 150);
+p.lineTo(145, 200);
+p.lineTo(65, 200);
+p.lineTo(15, 150);
+p.lineTo(15, 70);
+p.closePath();
+p.fillStyle = 'red';
 p.stroke();
 
+p.font = '60px sans-serif';
+p.strokeText('STOP', 25, 130);
 }
 
 /*
@@ -314,7 +312,7 @@ let sideLength = Number(prompt('Height:'));
 let limit = 100;
 
 if (sideLength > 100){
-  alert('That side length will not fit on the canvas');
+  alert('The pyramid will not fit on the canvas');
 } else {
 
   p.beginPath();
@@ -385,46 +383,50 @@ p.clearRect(0, 0, 1024, 512);
 let houseColor = prompt('House color:');
 let doorColor = prompt('Door color:');
 
-p.beginPath();
-//house
-p.fillStyle = `${houseColor}`;
-p.fillRect(150, 502, 724, 256);
-p.fillRect(150, 246, 724, 256);
-p.fill();
-p.stroke();
+if (houseColor == doorColor){
+  alert('Please choose two different colors');
+} else {
+  p.beginPath();
+  //house
+  p.fillStyle = `${houseColor}`;
+  p.fillRect(150, 502, 724, 256);
+  p.fillRect(150, 246, 724, 256);
+  p.stroke();
 
-//windows
-p.beginPath();
-p.fillStyle = 'lightBlue';
-p.fillRect(270, 590, 85, 85);
-p.fillRect(270, 350, 85, 85);
+  //windows
+  p.beginPath();
+  p.fillStyle = 'lightBlue';
+  p.fillRect(270, 590, 85, 85);
+  p.fillRect(270, 350, 85, 85);
+  p.fillRect(670, 590, 85, 85);
+  p.fillRect(670, 350, 85, 85);
 
-p.fillRect(670, 590, 85, 85);
-p.fillRect(670, 350, 85, 85);
-p.fill();
-p.stroke();
+  p.strokeRect(270, 590, 85, 85);
+  p.strokeRect(270, 350, 85, 85);
+  p.strokeRect(670, 590, 85, 85);
+  p.strokeRect(670, 350, 85, 85);
+  p.stroke();
 
-//door
-p.beginPath();
-p.fillStyle = `${doorColor}`;
-p.fillRect(467, 578, 90, 180);
-p.fill();
-p.stroke();
+  //door
+  p.beginPath();
+  p.fillStyle = `${doorColor}`;
+  p.fillRect(467, 578, 90, 180);
+  p.strokeRect(467, 578, 90, 180);
+  p.stroke();
 
-//roof
-p.beginPath();
-p.moveTo(150, 247);
-p.lineTo(510, 40);
-p.lineTo(874, 247);
-p.closePath();
-p.fill();
-p.fillStyle = 'grey';
-p.stroke();
+  //roof
+  p.beginPath()
+  p.fillStyle = 'gray';
+  p.moveTo(150, 247);
+  p.lineTo(510, 40);
+  p.lineTo(874, 247);
+  p.closePath();
+  p.stroke();
 
-//doorknob
-p.beginPath();
+  //doorknob
+  p.beginPath();
+  p.fillStyle = 'yellow';
   p.arc(540, 680, 7, 0, Math.PI * 2, true);
-
-p.stroke();
-
+  p.stroke();
+}
 }
