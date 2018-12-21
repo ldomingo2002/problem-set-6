@@ -159,11 +159,11 @@ p.clearRect(0, 0, 1024, 512);
 
 let side1 = Number(prompt('Side 1:')) + 10;
 let side2 = Number(prompt('Side 2:')) + 10;
-let side3 = prompt('Side 3:');
+let side3 = Number(prompt('Side 3:'));
 
 let equation = Math.sqrt((side1 * side1) + (side2 * side2));
 
-if (equation == side3){
+if (equation !== side3){
 
   p.beginPath();
   p.moveTo(10, 10);
@@ -171,9 +171,9 @@ if (equation == side3){
   p.lineTo(side2, side1);
   p.closePath();
   p.stroke();
-
+} else {
+  alert('That triangle is invalid')
 }
-
 }
 
 /*
@@ -269,21 +269,27 @@ p.stroke();
 function drawStopSign() {
 var p = document.getElementById('canvas7').getContext('2d');
 
-p.beginPath();
-p.moveTo(65, 10);
-p.lineTo(145, 10);
-p.lineTo(195, 70);
-p.lineTo(195, 150);
-p.lineTo(145, 200);
-p.lineTo(65, 200);
-p.lineTo(15, 150);
-p.lineTo(15, 70);
-p.closePath();
-p.fillStyle = 'red';
-p.stroke();
 
+let stop = new Path2D();
+stop.moveTo(65, 10);
+stop.lineTo(145, 10);
+stop.lineTo(195, 70);
+stop.lineTo(195, 150);
+stop.lineTo(145, 200);
+stop.lineTo(65, 200);
+stop.lineTo(15, 150);
+stop.lineTo(15, 70);
+stop.closePath();
+
+p.fillStyle = 'red';
+p.strokeStyle = "black";
+p.fill(stop, 'evenodd');
+
+p.beginPath();
 p.font = '60px sans-serif';
-p.strokeText('STOP', 25, 130);
+p.fillStyle = 'white';
+p.fillText('STOP', 25, 130);
+p.closePath();
 }
 
 /*
@@ -415,18 +421,25 @@ if (houseColor == doorColor){
   p.stroke();
 
   //roof
-  p.beginPath()
+
+  let roof = new Path2D();
+  roof.moveTo(150, 247);
+  roof.lineTo(510, 40);
+  roof.lineTo(874, 247);
+  roof.closePath();
+
   p.fillStyle = 'gray';
-  p.moveTo(150, 247);
-  p.lineTo(510, 40);
-  p.lineTo(874, 247);
-  p.closePath();
-  p.stroke();
+  p.strokeStyle = "black";
+  p.fill(roof, 'evenodd');
 
   //doorknob
-  p.beginPath();
+
+let knob = new Path2D();
+  knob.arc(540, 680, 7, 0, Math.PI * 2, true);
+
   p.fillStyle = 'yellow';
-  p.arc(540, 680, 7, 0, Math.PI * 2, true);
-  p.stroke();
+  p.strokeStyle = 'black';
+  p.fill(knob, 'evenodd');
+
 }
 }
