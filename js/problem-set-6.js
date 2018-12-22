@@ -244,11 +244,16 @@ p.clearRect(0, 0, 1024, 512);
 let outerRadius = prompt('Outer Radius:');
 let innerRadius = prompt('Inner Radius:');
 
+
 p.beginPath();
 p.arc(120, 100, innerRadius, 0, Math.PI * 2, true);
 p.moveTo(80, 80);
 p.arc(120, 100, outerRadius, 0, Math.PI * 2, true);
+p.closePath();
 p.stroke();
+
+
+
 }
 
 /*
